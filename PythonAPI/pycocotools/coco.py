@@ -67,7 +67,7 @@ def _isArrayLike(obj):
     return hasattr(obj, '__iter__') and hasattr(obj, '__len__')
 
 
-class COCO(object):
+class COCO:
     def __init__(self, annotation_file=None):
         """
         Constructor of Microsoft COCO helper class for reading and visualizing annotations.
