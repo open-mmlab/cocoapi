@@ -67,7 +67,7 @@ def _isArrayLike(obj):
     return hasattr(obj, '__iter__') and hasattr(obj, '__len__')
 
 
-class COCO:
+class COCO(object):
     def __init__(self, annotation_file=None):
         """
         Constructor of Microsoft COCO helper class for reading and visualizing annotations.
@@ -153,6 +153,8 @@ class COCO:
         else:
             ids = [ann['id'] for ann in anns]
         return ids
+    
+    get_ann_ids = getAnnIds
 
     def getCatIds(self, catNms=[], supNms=[], catIds=[]):
         """
@@ -176,6 +178,8 @@ class COCO:
         ids = [cat['id'] for cat in cats]
         return ids
 
+    get_cat_ids = getCatIds
+
     def getImgIds(self, imgIds=[], catIds=[]):
         '''
         Get img ids that satisfy given filter conditions.
@@ -197,6 +201,8 @@ class COCO:
                     ids &= set(self.catToImgs[catId])
         return list(ids)
 
+    get_img_ids = getImgIds
+
     def loadAnns(self, ids=[]):
         """
         Load anns with the specified ids.
@@ -207,6 +213,8 @@ class COCO:
             return [self.anns[id] for id in ids]
         elif type(ids) == int:
             return [self.anns[ids]]
+
+    load_anns = loadAnns
 
     def loadCats(self, ids=[]):
         """
@@ -219,6 +227,8 @@ class COCO:
         elif type(ids) == int:
             return [self.cats[ids]]
 
+    load_cats = loadCats
+
     def loadImgs(self, ids=[]):
         """
         Load anns with the specified ids.
@@ -229,6 +239,8 @@ class COCO:
             return [self.imgs[id] for id in ids]
         elif type(ids) == int:
             return [self.imgs[ids]]
+
+    load_imgs = loadImgs
 
     def showAnns(self, anns, draw_bbox=False):
         """
@@ -431,6 +443,8 @@ class COCO:
             rle = ann['segmentation']
         return rle
 
+    ann_to_rle = annToRLE
+
     def annToMask(self, ann):
         """
         Convert annotation which can be polygons, uncompressed RLE, or RLE to binary mask.
@@ -439,3 +453,5 @@ class COCO:
         rle = self.annToRLE(ann)
         m = maskUtils.decode(rle)
         return m
+
+    ann_to_mask = annToMask
