@@ -30,4 +30,4 @@ jobs:
     - name: Format with yapf
       run: yapf -r -d PythonAPI
     - name: Build and install
-      run: rm -rf .eggs && pip install -e .
+      run: cd PythonAPI && rm -rf .eggs && pip install -e .
