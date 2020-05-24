@@ -29,5 +29,7 @@ jobs:
       run: isort -rc --check-only --diff PythonAPI/
     - name: Format with yapf
       run: yapf -r -d PythonAPI
+    - name: Install python dependencies
+      run: pip install numpy
     - name: Build and install
       run: cd PythonAPI && rm -rf .eggs && pip install -e .
