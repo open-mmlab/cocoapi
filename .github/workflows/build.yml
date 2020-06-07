@@ -32,4 +32,4 @@ jobs:
     - name: Install python dependencies
       run: pip install numpy
     - name: Build and install
-      run: cd PythonAPI && rm -rf .eggs && pip install -e .
+      run: cd PythonAPI && rm -rf *.eggs-info && pip install -e .
