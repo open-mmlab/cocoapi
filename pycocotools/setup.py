@@ -26,8 +26,3 @@ setup(name='pycocotools',
       ],
       version='2.1',
       ext_modules=ext_modules)
-
-setup(name='lvis',
-      packages=['lvis'],
-      package_dir={'lvis': 'lvis'},
-      version='0.6')
