@@ -19,13 +19,15 @@ ext_modules = [
 ]
 
 setup(name='pycocotools',
-      packages=['pycocotools', 'lvis'],
-      package_dir={
-          'pycocotools': 'pycocotools',
-          'lvis': 'lvis'
-      },
+      packages=['pycocotools'],
+      package_dir={'pycocotools': 'pycocotools'},
       install_requires=[
           'setuptools>=18.0', 'cython>=0.27.3', 'matplotlib>=2.1.0'
       ],
       version='2.1',
       ext_modules=ext_modules)
+
+setup(name='lvis',
+      packages=['lvis'],
+      package_dir={'lvis': 'lvis'},
+      version='0.6')
