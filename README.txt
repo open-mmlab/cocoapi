@@ -7,6 +7,9 @@ Also we unify the api of COCO and LVIS, since they share similar functions.
 
 Notes:
 * We add snack case aliases for functions of [COCO](pycocotools/coco.py).
+* The the package version requirement of `lvis-api` is lifted.
+* The major version of `cocoapi` and `lvis-api` in this repo is offseted by 10.
+  Namely, `cocoapi@2.0.0->cocoapi@12.0.0`, `lvis-api@0.5.2->lvis-api@10.5.2`.
 
 # Installation
 Currently, you could install by run
