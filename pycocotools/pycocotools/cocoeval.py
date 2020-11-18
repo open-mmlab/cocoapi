@@ -630,7 +630,9 @@ class COCOeval:
                                    areaRng='all',
                                    maxDets=self.params.maxDets[2],
                                    lrp_type='oLRP_false_negative')
-            _summarize(-1, iouThr=.5, areaRng='all',
+            _summarize(-1,
+                       iouThr=.5,
+                       areaRng='all',
                        maxDets=self.params.maxDets[2],
                        lrp_type='oLRP_thresholds')
             return stats
@@ -667,8 +669,11 @@ class COCOeval:
                                    iouThr=.5,
                                    areaRng='all',
                                    lrp_type='oLRP_false_negative')
-            _summarize(-1, iouThr=.5, areaRng='all',
-                       maxDets=20, lrp_type='oLRP_thresholds')
+            _summarize(-1,
+                       iouThr=.5,
+                       areaRng='all',
+                       maxDets=20,
+                       lrp_type='oLRP_thresholds')
             return stats
 
         if not self.eval:
@@ -688,7 +693,6 @@ class Params:
     '''
     Params for coco evaluation api
     '''
-
     def setDetParams(self):
         self.imgIds = []
         self.catIds = []
