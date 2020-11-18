@@ -566,7 +566,7 @@ class COCOeval:
                     typeStr = '    '
                 if lrp_type == 'oLRP_thresholds':
                     s = self.eval['lrp_opt_thr'][:, aind, mind].squeeze(axis=1)
-                    titleStr = '### Class-specific LRP-Optimal Thresholds ### \n'
+                    titleStr = '# Class-specific LRP-Optimal Thresholds # \n'
                     typeStr = '    '
                     # Floor by using 3 decimal digits
                     print(titleStr, np.round(s - 0.5 * 10**(-3), 3))
