@@ -455,7 +455,7 @@ class COCOeval:
                         precision[t, :, k, a, m] = np.array(q)
                         scores[t, :, k, a, m] = np.array(ss)
 
-                    #### oLRP and Opt.Thr. Computation ####
+                    # oLRP and Opt.Thr. Computation
                     tp_num = np.cumsum(tps[0, :])
                     fp_num = np.cumsum(fps[0, :])
                     fn_num = npig - tp_num
@@ -465,11 +465,13 @@ class COCOeval:
                         if tp_num[-1] > 0:
                             total_loc = tp_num - np.cumsum(dtIoU[0, :])
                             lrps = (total_loc / (1 - _pe.iouThrs[0]) + fp_num +
-                                fn_num) / (tp_num + fp_num + fn_num)
+                                    fn_num) / (tp_num + fp_num + fn_num)
                             opt_pos_idx = np.argmin(lrps)
                             olrp[k, a, m] = lrps[opt_pos_idx]
-                            olrp_loc[k, a, m] = total_loc[opt_pos_idx] / tp_num[opt_pos_idx]
-                            olrp_fp[k, a, m] = fp_num[opt_pos_idx] / (tp_num[opt_pos_idx] + fp_num[opt_pos_idx])
+                            olrp_loc[k, a, m] = total_loc[opt_pos_idx] / \
+                                tp_num[opt_pos_idx]
+                            olrp_fp[k, a, m] = fp_num[opt_pos_idx] / \
+                                (tp_num[opt_pos_idx] + fp_num[opt_pos_idx])
                             olrp_fn[k, a, m] = fn_num[opt_pos_idx] / npig
                             lrp_opt_thr[k, a, m] = dtScoresSorted[opt_pos_idx]
                         # There is No TP
@@ -563,10 +565,10 @@ class COCOeval:
                     titleStr = 'Optimal LRP FN'
                     typeStr = '    '
                 if lrp_type == 'oLRP_thresholds':
-                    s = self.eval['lrp_opt_thr'][:, aind, mind].squeeze(axis = 1)
+                    s = self.eval['lrp_opt_thr'][:, aind, mind].squeeze(axis=1)
                     titleStr = '### Class-specific LRP-Optimal Thresholds ### \n'
                     typeStr = '    '
-                    # Floor by using 3 decimal digits            
+                    # Floor by using 3 decimal digits
                     print(titleStr, np.round(s - 0.5 * 10**(-3), 3))
                     return s
             idx = (~np.isnan(s))
@@ -629,8 +631,8 @@ class COCOeval:
                                    maxDets=self.params.maxDets[2],
                                    lrp_type='oLRP_false_negative')
             _summarize(-1, iouThr=.5, areaRng='all',
-                        maxDets=self.params.maxDets[2],
-                        lrp_type='oLRP_thresholds')
+                       maxDets=self.params.maxDets[2],
+                       lrp_type='oLRP_thresholds')
             return stats
 
         def _summarizeKps():
@@ -666,7 +668,7 @@ class COCOeval:
                                    areaRng='all',
                                    lrp_type='oLRP_false_negative')
             _summarize(-1, iouThr=.5, areaRng='all',
-                        maxDets=20, lrp_type='oLRP_thresholds')
+                       maxDets=20, lrp_type='oLRP_thresholds')
             return stats
 
         if not self.eval:
@@ -686,6 +688,7 @@ class Params:
     '''
     Params for coco evaluation api
     '''
+
     def setDetParams(self):
         self.imgIds = []
         self.catIds = []
