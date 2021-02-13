@@ -24,9 +24,6 @@ setup(name='mmpycocotools',
       install_requires=[
           'setuptools>=18.0', 'cython>=0.27.3', 'matplotlib>=2.1.0'
       ],
-      setup_requires=[
-          'cython>=0.27.3',
-          'numpy'
-      ],
+      setup_requires=['cython>=0.27.3', 'numpy'],
       version='12.0.4',
       ext_modules=ext_modules)
