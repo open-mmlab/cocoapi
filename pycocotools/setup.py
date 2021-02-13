@@ -27,6 +27,6 @@ setup(name='mmpycocotools',
       setup_requires=[
           'cython>=0.27.3',
           'numpy'
-      ]
+      ],
       version='12.0.4',
       ext_modules=ext_modules)
