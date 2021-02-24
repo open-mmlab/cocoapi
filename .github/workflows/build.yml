@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 isort==4.3.21 yapf
       - name: Lint with flake8
-        run: flake8 --ignore=E402 --max-complexity 20 .
+        run: flake8 --max-complexity 20 .
       - name: Lint with isort
         run: isort -rc --check-only --diff pycocotools/ lvis/
       - name: Format with yapf
