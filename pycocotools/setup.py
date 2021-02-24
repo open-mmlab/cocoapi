@@ -1,5 +1,5 @@
 import numpy as np
-from setuptools import Extension, dist, setup
+from setuptools import Extension, setup
 
 # To compile and install locally run "python setup.py build_ext --inplace"
 # To install library to Python site-packages run
