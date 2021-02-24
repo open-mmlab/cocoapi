@@ -1,4 +1,3 @@
-import numpy as np
 from setuptools import dist  # Install numpy and cython at start
 from setuptools import Extension, setup
 
@@ -29,8 +28,8 @@ ext_modules = [
 setup(name='mmpycocotools',
       packages=['pycocotools'],
       package_dir={'pycocotools': 'pycocotools'},
-      install_requires = [
-        'setuptools>=18.0', 'cython>=0.27.3', 'matplotlib>=2.1.0'
-    ]
+      install_requires=[
+          'setuptools>=18.0', 'cython>=0.27.3', 'matplotlib>=2.1.0'
+      ],
       version='12.0.4',
       ext_modules=ext_modules)
