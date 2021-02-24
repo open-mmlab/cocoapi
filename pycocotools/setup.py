@@ -26,9 +26,6 @@ setup(name='mmpycocotools',
       packages=['pycocotools'],
       package_dir={'pycocotools': 'pycocotools'},
       install_requires=install_requires,
-      setup_requires=[
-          'cython>=0.27.3',
-          'numpy'
-      ]
+      setup_requires=['cython>=0.27.3', 'numpy'],
       version='12.0.4',
       ext_modules=ext_modules)
