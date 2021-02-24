@@ -1,3 +1,4 @@
+import numpy as np
 from setuptools import Extension, dist, setup
 
 # To compile and install locally run "python setup.py build_ext --inplace"
@@ -7,10 +8,9 @@ from setuptools import Extension, dist, setup
 # the Visual C++ 2015 build tools.
 # They can safely be removed.
 
-install_requires = ['setuptools>=18.0', 'cython>=0.27.3', 'matplotlib>=2.1.0']
-dist.Distribution().fetch_build_eggs(install_requires)
-
-import numpy as np
+install_requires = [
+    'setuptools>=18.0', 'cython>=0.27.3', 'matplotlib>=2.1.0', 'numpy'
+]
 
 ext_modules = [
     Extension(
