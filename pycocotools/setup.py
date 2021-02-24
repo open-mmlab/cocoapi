@@ -1,5 +1,4 @@
-import numpy as np
-from setuptools import Extension, setup
+from setuptools import Extension, dist, setup
 
 # To compile and install locally run "python setup.py build_ext --inplace"
 # To install library to Python site-packages run
@@ -7,6 +6,11 @@ from setuptools import Extension, setup
 # Note that the original compile flags below are GCC flags unsupported by
 # the Visual C++ 2015 build tools.
 # They can safely be removed.
+
+install_requires = ['setuptools>=18.0', 'cython>=0.27.3', 'matplotlib>=2.1.0']
+dist.Distribution().fetch_build_eggs(install_requires)
+
+import numpy as np
 
 ext_modules = [
     Extension(
@@ -21,9 +25,7 @@ ext_modules = [
 setup(name='mmpycocotools',
       packages=['pycocotools'],
       package_dir={'pycocotools': 'pycocotools'},
-      install_requires=[
-          'setuptools>=18.0', 'cython>=0.27.3', 'matplotlib>=2.1.0'
-      ],
+      install_requires=install_requires,
       setup_requires=[
           'cython>=0.27.3',
           'numpy'
