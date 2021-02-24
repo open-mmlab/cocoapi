@@ -13,7 +13,7 @@ dist.Distribution().fetch_build_eggs(['cython>=0.27.3', 'numpy'])
 try:
     import numpy as np
 except ImportError:
-    exit('Please install numpy>=1.11.2 first.')
+    exit('Please install numpy first.')
 
 ext_modules = [
     Extension(
